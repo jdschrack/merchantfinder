@@ -9,6 +9,16 @@ import (
 // MatchProcessor identifies a merchant acquiring processor from a description string
 func MatchProcessor(description string) string {
 	merchantAcquirers := map[string]*regexp.Regexp{
+		// Additional acquirers / processors
+		"Heartland":              regexp.MustCompile(`(?i)\bHEARTLAND\b`),
+		"Shift4":                 regexp.MustCompile(`(?i)\bSHIFT4\b|\bSHIFT 4\b`),
+		"Nuvei":                  regexp.MustCompile(`(?i)\bNUVEI\b`),
+		"Clearent/Xplor":         regexp.MustCompile(`(?i)\bCLEARENT\b|\bXPLOR\b`),
+		"CardConnect/CardPointe": regexp.MustCompile(`(?i)\bCARDCONNECT\b|\bCARDPOINTE\b`),
+		"Paymentech":             regexp.MustCompile(`(?i)\bPAYMENTECH\b|\bORBITAL\b`),
+		"EVO Payments":           regexp.MustCompile(`(?i)\bEVO PAYMENTS\b`),
+		"Merchant e-Solutions":   regexp.MustCompile(`(?i)\bMERCHANT E-?SOLUTIONS\b`),
+		"MX Merchant":            regexp.MustCompile(`(?i)\bMX MERCHANT\b`),
 		"Square":                 regexp.MustCompile(`(?i)\bSQ\*|SQUARE|SQC\b`),
 		"Stripe":                 regexp.MustCompile(`(?i)\bSTRIPE\b`),
 		"Toast":                  regexp.MustCompile(`(?i)\bTOAST|TOASTTAB\b`),
